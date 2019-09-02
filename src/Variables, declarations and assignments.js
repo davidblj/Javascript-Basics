@@ -23,7 +23,7 @@ console.log(a)
         var a2 = 123
     }
 
-    console.log(a2)             // 123: var are function scoped      
+    console.log(a2)             // 123: 'var' variables are function scoped      
 
 // -------------------------
 
