@@ -47,7 +47,7 @@ console.log(9 + +'99.5555');                    // 108.5555 : adding the operato
 
 // 4. Understanding not a number 
 
-// NaN is a reserved word in Js, an object to say so. 
+// NaN is a reserved word in Js, an object, to say so. 
 
 const result = Number('55px');
 
@@ -67,40 +67,44 @@ console.log(Number.isInteger('99'));                    // false
 
 // 5. Numbers type checking
 
-console.log(typeof 99.66);                  // number
+console.log(typeof 99.66);                  // 'number'
 console.log(typeof 99.66 === 'number');     // true
 
 console.log(99 instanceof Number);          // false : 99 is a literal value and not an instance of Number
-// console.log(99 instanceof number);       // the type 'number' don't exist 
+// console.log(99 instanceof number);       // compile error : the type 'number' don't exist 
 
 console.log(Number('99') instanceof Number);            // false
 console.log(new Number('99') instanceof Number);        // true
 
-// "instanceOf" is not a reliable way to type check numbers in js
-console.log({}.toString)                    // this is probably the safest way to type check in js 
+// "instanceOf" is not a reliable way to type check numbers in js, an alternative is to convert 
+// any object into an String, and then to check its value
 
-console.log(Object.prototype.toString.call(99))
-console.log(Object.prototype.toString.call(99).slice(8, -1) === 'Number');  // true : and more directly to the point
-                                                                            // you may want to access its string value
-                                                                            // throught the object.prototype call.
-                                                                            // the slice portion of this sentence
-                                                                            // retrieves the string "Number"
+console.log({}.toString)                    // [object Object]: this is probably the safest way to type check in js 
+
+console.log(Object.prototype.toString.call(99))                             // [object Number]
+console.log(Object.prototype.toString.call(99).slice(8, -1) === 'Number');  // true :
+                                                                            
+                                                                                // you should access its string value
+                                                                                // through the object.prototype call.
+
+                                                                                // the slice portion of this sentence
+                                                                                // retrieves the string "Number", its type
 // 6. Exploring number objects
 
 
-// toFixed trims the floating numbers
+// 'toFixed' trims the floating numbers
 
-// console.log(99.toFixed(4));                              // compilation error 
+// console.log(99.toFixed(4));                              // compile error 
 console.log(99..toFixed(4));                                // '99.0000' : a workaround, the dot refers to its decimal portion
 console.log((99).toFixed(4));                               // '99.0000' : cleaner workaround
 console.log(parseFloat((99.12345678).toFixed(4)));          // 99.1234
 
 
-// toPrecision limits the amount of numbers
+// 'toPrecision' limits the amount of numbers
 
 console.log((99.12345678).toPrecision(5));                  // 99.123    
 
-// and lastly, valueOf, which returns the primitive value of any object 
+// and lastly, 'valueOf', which returns the primitive value of any object 
 
 console.log(new Number(99).valueOf());                      // 99 
 
