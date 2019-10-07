@@ -45,8 +45,8 @@
                                         // practical. 
 
     const pizza2 = 'P e p p e r o n i';
-    console.log(pizza2[0], pizza2[pizza2.length - 1], pizza2.length);   // P, i, 17 : (tip) in the first argument, you can
-                                                                        // use an string
+    console.log(pizza2[0], pizza2[pizza2.length - 1], pizza2.length);   // P, i, 17 : (tip) The first argument may receive
+                                                                        // an string
 
 
 // 3. Strings and immutability
@@ -59,7 +59,7 @@
                                                     // wont change the string.
 
 
-                                                    // 4. Correctly type checking Strings
+// 5. Correctly type checking Strings
 
     console.log(typeof 'Pepperoni');                                // string
     console.log('Pepperoni' instanceof String);                     // false
@@ -68,7 +68,7 @@
     console.log(Object.prototype.toString.call('Pepperoni'));       // [object String]                                                    
 
 
-// 4. Exploring String methods
+// 6. Exploring String methods
 
     console.log(String.prototype);                          // list of all of the string methods
 
