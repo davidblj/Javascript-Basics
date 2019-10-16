@@ -55,7 +55,7 @@
         console.log(arguments, Array.isArray(arguments));       // false: this is not array, and yet is an object,
                                                                 // an existing object.
 
-        // arguments are not iterable, yet you can do so by making an array from. 
+        // arguments are not iterable, but you can do so by making an array from it. 
         const total = Array.from(arguments).reduce((prev, next) => {
             return prev + next;
         });
@@ -66,7 +66,7 @@
                                                 // this is passed down as an 'array like object'
     
     // in es 2015, you can now access directly that variable as an array
-    // This variable must be at the end of the parameters
+    // This variable must be at the end of the parameters of the function
     function makeCarPriceRest(...params) {
         
         console.log(Array.isArray(params));                    // true     

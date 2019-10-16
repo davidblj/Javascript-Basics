@@ -44,7 +44,7 @@ function doExecute() {
 
     switch (number4) {
         
-        case 1: {                      // if we swap out this case for '1', we would get a no match result
+        case 1: {                      // if we swap out this case for '1', we would get a no match result.
             const text = 'One';        // case statements evaluate expressions with the '===' operator 
             result4 = text;
             break;
