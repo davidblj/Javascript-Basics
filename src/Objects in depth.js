@@ -110,12 +110,12 @@
     // ... 
     console.log(myDrinkId, myDrinkSalePrice);
 
-    const id4 = 1234;            // watch out for duplicate values
+    const id4 = 1234;           // watch out for duplicate values
                                 // you can't destructure the previous
                                 // object without an alias for id 
                                 // (e.g. 'myId')
 
-    // Yyou may access all properties through the destructuring syntax 
+    // You may access all properties through the destructuring syntax 
     const {
         id4: myId,                  // with an alias
         price: { full },            // destructuring of inner property 'full' 
@@ -240,18 +240,19 @@
     drinkClone.id = 'abcd';
     drinkClone.price.sale = 79;    
 
-    console.log(drink8);     // {id: 'xhs8Pla', price: { sale : 79, ...}, ...} : they are called shallow copies 
+    console.log(drink8);    // {id: 'xhs8Pla', price: { sale : 79, ...}, ...} : they are called shallow copies 
                             // because they don't copy nested objects as shown with the 'sale' property
 
     // to make deep copy, that is, to copy nested objects, you need to use the JSON library: but there is
-    // a catch, json.stringify its not going to copy functions, and the final object results with trimmed
-    // function properties. 
+    // a catch, json.stringify its not going to copy functions, and the final object results with all
+    // function properties trimmed in the final copy. 
     const drinkStringified = JSON.stringify(drink8);
     const drinkClone2 = JSON.parse(drinkStringified);
 
     console.log(drinkClone2)
 
-    // 9. Merging objects
+
+// 9. Merging objects
 
     const drink9 = {
         id: 'xhs8Pla',
@@ -350,12 +351,12 @@
     for (const prop in drinkWithId) {
 
     // to truly check which properties belongs to the object we are 
-    // iterating, and not the properties in the prototype chaing,
+    // iterating, and not the properties in the prototype chain,
     // we can use 'hasOwnProperty'
 
-    if (drinkWithId.hasOwnProperty(prop)) {
-    console.log(prop, drinkWithId[prop]);     // id xhs8Pla (only printed through out the whole loop)
-    }
+        if (drinkWithId.hasOwnProperty(prop)) {
+            console.log(prop, drinkWithId[prop]);     // id xhs8Pla (only printed through out the whole loop)
+        }
     }
 
     // If you want to iterate properties which don't exist directly in
@@ -382,3 +383,20 @@
     // Object.entries return an array per property. 
     // each item its going to contain two elements: the property, and the value
     console.log(Object.entries(drink12));    
+
+
+// 13. Shallow and deep cloning arrays 
+
+    const drinks = [['Lemonade', 99], ['Lime', 99], ['Peach', 89]];
+
+    // const drinksClone = [...drinks];                 // the spread operator makes a shallow copy
+    // const drinksClone = drinks.slice();              // slice, as is, it's going to return the entire array
+                                                        // and stills, it makes a shallow copy
+    // const drinksClone = Array.from(drinks);          // the same goes to this function, taken out from es 2015
+
+    // a deep clone, as we have done with objects, is achieved only with JSON.stringify
+    const drinksClone = JSON.parse(JSON.stringify(drinks));
+
+    drinksClone[0][1] = 1000;
+
+    console.log(drinks);

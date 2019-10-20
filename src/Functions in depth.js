@@ -87,7 +87,7 @@
         // scope 1                                      // Shockingly, 'name' is not accesible
         const theId = `CAR_PART_${id}`;                 // to scope #1
         
-        // closure (arrow functions are valid as well)
+        // closure (note: arrow functions are valid as well)
         return function(name) {
             
             // scope 2
